@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('clash-display.css');
+@import url('satoshi.css');
+h1, h2, h3,h4,h5,h6{
+  font-family: 'ClashDisplay-Bold'
+}
+body{
+  font-family: 'Satoshi-Regular';
+}
+nav ul li{
+margin-right: 1.5rem;
+}
+@layer components {
+  .page-container{
+    @apply md:max-w-[60rem] lg:max-w-[74rem] mx-auto px-8;
+  }
+  .nav-link{
+    @apply hover:text-white active:text-white cursor-pointer;
+  }
+  .white_button{
+    @apply px-6 py-2 rounded-sm bg-[#ffffff] text-[#004DB3] font-bold text-xs
+  }
+  .blue_button{
+    @apply px-6 py-3 rounded-sm text-[#ffffff] bg-[#004DB3] font-bold text-xs
+  }
+}
+/* font-family: 'ClashDisplay-Variable';
+font-family: 'ClashDisplay-Extralight';
+font-family: 'ClashDisplay-Light';
+font-family: 'ClashDisplay-Regular';
+font-family: 'ClashDisplay-Medium';
+font-family: 'ClashDisplay-Semibold';
+font-family: 'ClashDisplay-Bold'; */
+
+/* font-family: 'Satoshi-Variable';
+font-family: 'Satoshi-VariableItalic';
+font-family: 'Satoshi-Light';
+font-family: 'Satoshi-LightItalic';
+font-family: 'Satoshi-Regular';
+font-family: 'Satoshi-Italic';
+font-family: 'Satoshi-Medium';
+font-family: 'Satoshi-MediumItalic';
+font-family: 'Satoshi-Bold';
+font-family: 'Satoshi-BoldItalic';
+font-family: 'Satoshi-Black';
+font-family: 'Satoshi-BlackItalic'; */
