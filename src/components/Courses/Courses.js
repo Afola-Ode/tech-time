@@ -21,7 +21,7 @@ const Card = ({ course }) => {
   } = course;
 
   return (
-    <div className='bg-white shadow-md rounded-md p-4 w-1/2 md:w-1/3 lg:1/4 md:mx-5 my-3'>
+    <div className='bg-white shadow-md rounded-md p-4 w-1/2 md:w-1/3 lg:1/4 md:mx-5 mx-2 my-3'>
       <img src={img} alt={title} />
       <div className='flex items-center justify-between my-3'>
         <button className='bg-[#1e5cce75] text-[#1e5dce] font-semibold px-5 py-2 rounded-full text-xs'>
