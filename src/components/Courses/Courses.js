@@ -1,59 +1,97 @@
 import React, { useState } from "react";
-import Card from "../Card/Card";
-function Tabs({ children }) {
+import {
+  Book,
+  Clock,
+  Grade,
+} from "../../images";
+import Courses from "./Data";
+
+const Card = ({ course }) => {
+  const {
+    title,
+    img,
+    category,
+    reviews,
+    purchases,
+    time,
+    lessons,
+    author,
+    price,
+    authorImg,
+  } = course;
+
+  return (
+    <div className='bg-white shadow-md rounded-md p-4 w-1/4 mx-5 my-3'>
+      <img src={img} alt={title} />
+      <div className='flex items-center justify-between my-3'>
+        <button className='bg-[#1e5cce75] text-[#1e5dce] font-semibold px-5 py-2 rounded-full text-xs'>
+          {category} 
+        </button>
+        <div className='flex items-center text-[#A1A1A1] text-xs font-semibold'>
+          <span>{reviews}</span>
+          <img src={Grade} alt='' className='mx-1' />
+          <span>({purchases})</span>
+        </div>
+      </div>
+      <h3 className='text-lg font-medium mb-3 mt-2'>{title}</h3>
+      <div className='flex justify-between text-[#A1A1A1] text-xs font-semibold'>
+        <div className='flex items-center '>
+          <img src={Clock} alt='' className='w-4' />
+          <span className='ml-2'>{time}</span>
+        </div>
+        <div className='flex items-center'>
+          <img src={Book} alt='' className='w-4' />
+          <span className='ml-2'>{lessons} Lessons</span>
+        </div>
+      </div>
+      <div className='flex justify-between mt-5'>
+        <div className='flex items-center'>
+          <img src={authorImg} alt='' className='mr-2 w-8' />
+          <span className='font-bold text-sm'>{author}</span>
+        </div>
+        <div>
+          <span className='text-[#004DB3] font-bold text-sm'>${price}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
+  const categories = ["All", ...new Set(Courses.map((course) => course.category))]; // Get unique categories
+
+  const filteredCourses =
+    activeTab === 0
+      ? Courses
+      : Courses.filter((course) => course.category === categories[activeTab]);
 
   return (
-    <div className="page-container">
-      <div className="flex justify-center ">
-        {children.map((child, index) => (
+    <div className='page-container'>
+      <div className='flex justify-center bg-[#F8F9FC]'>
+        {categories.map((category, index) => (
           <div
             key={index}
             className={`cursor-pointer py-2 px-4 text-gray-500 ${
-              index === activeTab
-                ? "bg-gray-200 font-medium text-gray-800"
-                : ""
+              index === activeTab ? "bg-gray-200 font-medium text-gray-800" : ""
             }`}
             onClick={() => handleTabClick(index)}
           >
-            {child.props.label}
+            {category}
           </div>
         ))}
       </div>
-      <div className="mt-4">{children[activeTab]}</div>
+      <div className='flex flex-wrap justify-between bg-[#F8F9FC] py-6'>
+        {filteredCourses.map((course, index) => (
+          <Card course={course} key={index} />
+        ))}
+      </div>
     </div>
-  );
-}
-function Tab({ children }) {
-  return <div>{children}</div>;
-}
-const Courses = () => {
-  
-  return (
-    <section className="bg-[#F8F9FC]">
-      <Tabs>
-        <Tab label="All">
-          <h2>Tab 1 content</h2>
-        </Tab>
-        <Tab label="Design">
-          <h2>Tab 2 content</h2>
-          <p>This is the content for Tab 2.</p>
-        </Tab>
-        <Tab label="Development">
-          <h2>Tab 3 content</h2>
-          <p>This is the content for Tab 3.</p>
-        </Tab>
-        <Tab label="Marketing">
-          <h2>Tab 3 content</h2>
-          <p>This is the content for Tab 3.</p>
-        </Tab>
-      </Tabs>
-    </section>
   );
 };
 
-export default Courses;
+export default Tabs;

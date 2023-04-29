@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className='bg-[#000F24] py-3 text-white'>
       <div className='page-container flex py-20 flex-wrap'>
-        <div className='w-full md:w-full mb-10 lg:mb-0 lg:w-[20%]'>
+        <div className='w-full md:w-full mb-10 lg:mb-0 lg:w-[20%] pr-2'>
           <img src={Logo} alt='' className='w-20 mb-4' />
           <p className='text-xs my-4'>
             Reach out to us on any of our social media networks

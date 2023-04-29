@@ -26,23 +26,21 @@ margin-right: 1.5rem;
     @apply px-6 py-3 rounded-sm text-[#ffffff] bg-[#004DB3] font-bold text-xs
   }
 }
-/* font-family: 'ClashDisplay-Variable';
-font-family: 'ClashDisplay-Extralight';
-font-family: 'ClashDisplay-Light';
-font-family: 'ClashDisplay-Regular';
-font-family: 'ClashDisplay-Medium';
-font-family: 'ClashDisplay-Semibold';
-font-family: 'ClashDisplay-Bold'; */
-
-/* font-family: 'Satoshi-Variable';
-font-family: 'Satoshi-VariableItalic';
-font-family: 'Satoshi-Light';
-font-family: 'Satoshi-LightItalic';
-font-family: 'Satoshi-Regular';
-font-family: 'Satoshi-Italic';
-font-family: 'Satoshi-Medium';
-font-family: 'Satoshi-MediumItalic';
-font-family: 'Satoshi-Bold';
-font-family: 'Satoshi-BoldItalic';
-font-family: 'Satoshi-Black';
-font-family: 'Satoshi-BlackItalic'; */
+.slick-initialized { overflow: hidden; }
+.slick-slide {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -27px;
+}
+.slick-dots {
+  bottom: 25px;}
+  .slick-dots li button:before {
+    color: #CCDBF0;
+  }
+  .slick-dots li.slick-active button:before {
+    color:#004DB3 !important;
+}
+.slick-slider {
+  height: 24rem;
+}
